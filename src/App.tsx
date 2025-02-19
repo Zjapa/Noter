@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router";
 import Notes from "./pages/Dashboard/Dashboard";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import theme from "./styles/theme";
+import GlobalStyles from "./styles/GlobalStyles";
 
 export const MainContainer = styled.main`
   width: 100%;
@@ -11,11 +13,14 @@ export const MainContainer = styled.main`
 
 function App() {
   return (
-    <MainContainer>
-      <Routes>
-        <Route path="/" element={<Notes />} />
-      </Routes>
-    </MainContainer>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <MainContainer>
+        <Routes>
+          <Route path="/" element={<Notes />} />
+        </Routes>
+      </MainContainer>
+    </ThemeProvider>
   );
 }
 
