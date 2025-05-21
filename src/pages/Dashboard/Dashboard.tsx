@@ -1,33 +1,35 @@
+import NoteEditor from "../../components/NoteEditor/NoteEditor";
+import NoteOptions from "../../components/NoteOptions/NoteOptions";
+import NotePanel from "../../components/NotePanel/NotePanel";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import {
-  Controls,
-  Desc,
   Main,
-  MainHeader,
+  Header,
   MainTitle,
-  NotesLayout,
-  NotesList,
+  NotesDetails,
+  DashboardLayout,
 } from "./Dashboard.styled";
 
-const Notes = () => {
+const Dashboard = () => {
   return (
-    <NotesLayout>
+    <DashboardLayout>
       <Sidebar />
       <Main>
-        <MainHeader>
+        <Header>
           <MainTitle>All Notes</MainTitle>
           <nav>
             <input type="text" />
             settings
           </nav>
-        </MainHeader>
+        </Header>
+        <NotesDetails>
+          <NotePanel />
+          <NoteEditor />
+          <NoteOptions />
+        </NotesDetails>
       </Main>
-
-      <NotesList>Notes</NotesList>
-      <Desc>Description</Desc>
-      <Controls>Controls</Controls>
-    </NotesLayout>
+    </DashboardLayout>
   );
 };
 
-export default Notes;
+export default Dashboard;

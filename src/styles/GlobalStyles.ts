@@ -14,7 +14,13 @@ const GlobalStyles = createGlobalStyle`
 
   html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
   }
+
+  #root {
+  height: 100%;
+}
 
   body {
     font-family: ${(props) => props.theme.fonts.primary};

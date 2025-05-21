@@ -16,7 +16,7 @@ const theme = {
       500: "#717784",
       400: "#99A0AE",
       300: "#CACFD8",
-      200: "#EDE4EA",
+      200: "#E0E4EA",
       100: "#F3F5F8",
       50: "#F5F7FA",
       0: "#FFFFFF",
@@ -35,6 +35,10 @@ const theme = {
     red: {
       500: "#FB3748",
       100: "#FFD5D8",
+    },
+    yellow: {
+      500: "#FFC107",
+      100: "#FFF3CD",
     },
   },
   fonts: {

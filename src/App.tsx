@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import Notes from "./pages/Dashboard/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import GlobalStyles from "./styles/GlobalStyles";
@@ -9,6 +9,7 @@ export const MainContainer = styled.main`
   max-width: 1440px;
   padding: 0 20px;
   margin: 0 auto;
+  height: 100vh;
 `;
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       <GlobalStyles />
       <MainContainer>
         <Routes>
-          <Route path="/" element={<Notes />} />
+          <Route path="/" element={<Dashboard />} />
         </Routes>
       </MainContainer>
     </ThemeProvider>

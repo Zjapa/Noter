@@ -1,0 +1,29 @@
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { NoteType } from "../types/commonTypes";
+import { devtools } from "zustand/middleware";
+
+export interface NotesStoreType {
+  notes: NoteType[];
+  archivedNotes: NoteType[];
+  addArchivedNote: (note: NoteType) => void;
+  addNote: (note: NoteType) => void;
+  // removeNote: (id: number) => void;
+}
+
+const useNotesStore = create<NotesStoreType>()(
+  devtools(
+    persist(
+      (set) => ({
+        notes: [],
+        archivedNotes: [],
+        addArchivedNote: (note) =>
+          set((state) => ({ archivedNotes: [...state.archivedNotes, note] })),
+        addNote: (note) => set((state) => ({ notes: [...state.notes, note] })),
+      }),
+      { name: "notes-storage" }
+    )
+  )
+);
+
+export default useNotesStore;
