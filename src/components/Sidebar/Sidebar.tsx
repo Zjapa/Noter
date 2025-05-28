@@ -7,6 +7,8 @@ import HomeIcon from "../../assets/images/icon-home.svg";
 import HomeIconBlue from "../../assets/images/icon-home-blue.svg";
 import SidebarNavItem from "../SidebarNavItem/SidebarNavItem";
 import useNotesStore from "../../store/notesStore";
+import TagIcon from "../../assets/images/icon-tag.svg";
+import Label from "../Label/Label";
 
 const SidebarContainer = styled.section`
   padding: 0px 16px 12px 16px;
@@ -23,21 +25,24 @@ const LogoSyled = styled(Logo)`
   margin: 24px 0px 28px 0px;
 `;
 
-const NotesTagList = styled.div``;
+const NotesTagList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
 const TopNav = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral[200]};
-  padding-bottom: 8px;
-  margin-bottom: 8px;
+  padding-bottom: ${({ theme }) => theme.spacing[100]};
+  margin-bottom: ${({ theme }) => theme.spacing[100]};
 `;
 const TagsTitle = styled.h4`
   color: ${({ theme }) => theme.colors.neutral[500]};
-  margin-left: ${({ theme }) => theme.spacing[100]};
-  margin-bottom: 10px;
 `;
 
 const Sidebar = () => {
   const [activeTab, setActiveTab] = useState<string>("all-notes");
   const notes = useNotesStore((state) => state.notes);
+  const getAllTags = useNotesStore((state) => state.getAllTags);
 
   const handleNavItem = (tabId: string) => {
     setActiveTab(tabId);
@@ -67,10 +72,9 @@ const Sidebar = () => {
           {notes.length ? (
             <NotesTagList>
               <TagsTitle>Tags</TagsTitle>
-              {/* <TagItem tagName="React" />
-            <TagItem tagName="React" />
-            <TagItem tagName="React" />
-            <TagItem tagName="React" /> */}
+              {getAllTags().map((tag) => (
+                <Label text={tag} Icon={TagIcon} size="md" />
+              ))}
             </NotesTagList>
           ) : null}
         </nav>

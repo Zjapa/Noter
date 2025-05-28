@@ -1,5 +1,5 @@
 export interface NoteType {
-  id: number;
+  id: number | string;
   lastEditDate: Date;
   tags: string[];
   title: string;

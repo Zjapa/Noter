@@ -27,4 +27,5 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   width: 100%;
   border: none;
   color: ${({ theme }) => theme.colors.neutral[0]};
+  cursor: pointer;
 `;

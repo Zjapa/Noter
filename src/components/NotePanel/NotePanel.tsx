@@ -15,21 +15,13 @@ const NotePanelContainer = styled.section`
 
 const NotePanel = () => {
   const notes = useNotesStore((state) => state.notes);
-  const addNote = useNotesStore((state) => state.addNote);
 
-  const createNote = () => {
-    const newNote = {
-      id: Date.now(),
-      lastEditDate: new Date(),
-      tags: ["Travel", "Work"],
-      title: "New Note",
-      content: "This is the content of the new note.",
-    };
-    addNote(newNote);
+  const openNoteEditor = () => {
+    console.log("Open Note Editor");
   };
   return (
     <NotePanelContainer>
-      <Button onClick={createNote}>+ Create New Note</Button>
+      <Button onClick={openNoteEditor}>+ Create New Note</Button>
       {!notes.length ? (
         <InfoBox label="You don’t have any notes yet. Start a new note to capture your thoughts and ideas." />
       ) : (

@@ -9,5 +9,7 @@ export type ButtonVariantType =
 export type ButtonProps = {
   variant?: ButtonVariantType;
   children: ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };

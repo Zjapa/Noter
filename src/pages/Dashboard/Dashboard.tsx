@@ -24,7 +24,7 @@ const Dashboard = () => {
         </Header>
         <NotesDetails>
           <NotePanel />
-          <NoteEditor />
+          <NoteEditor />      {/* This needs to be show when Create New Note is clicked */}
           <NoteOptions />
         </NotesDetails>
       </Main>
